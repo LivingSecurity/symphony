@@ -11,7 +11,7 @@ defmodule SymphonyElixir.Linear.Client do
 
   @query """
   query SymphonyLinearPoll($projectSlug: String!, $stateNames: [String!]!, $first: Int!, $relationFirst: Int!, $after: String) {
-    issues(filter: {project: {slugId: {eq: $projectSlug}}, state: {name: {in: $stateNames}}}, first: $first, after: $after) {
+    issues(filter: {project: {slugId: {eq: $projectSlug}}, state: {name: {in: $stateNames}}, labels: {name: {in: ["agent-fix"]}}}, first: $first, after: $after) {
       nodes {
         id
         identifier
